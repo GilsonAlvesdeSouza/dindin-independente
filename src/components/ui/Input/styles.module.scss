@@ -6,7 +6,12 @@
 	background-color: var(--dark-900);
 	color: var(--white);
 	padding: 1rem;
-	border: 1px solid var(--gray-100)
+	border: 1px solid var(--gray-100);
+	transition: all ease 0.5s;
+
+	&:hover{
+		filter: brightness(1.3)
+	}
 }
 
 .input::placeholder{
