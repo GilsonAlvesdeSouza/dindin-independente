@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useState, useEffect } from 'react';
 import Router from 'next/router';
-import { destroyCookie, setCookie } from 'nookies';
+import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { api } from '@/services/apiCliente';
 import { toast } from 'react-toastify';
 import { errorOrAxiosError } from '@/helpers/errorAxios';
@@ -48,6 +48,27 @@ export const signOut = () => {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
 	const [user, setUser] = useState<UserProps>();
 	const isAuthenticated = !!user;
+
+	useEffect(() => {
+		// tentar pegar o token
+		const { '@dindin.token': token } = parseCookies();
+		if (token) {
+			api
+				.get('/usuario')
+				.then((response) => {
+					const { id, nome, email } = response.data;
+					setUser({
+						id,
+						name: nome,
+						email
+					});
+				})
+				.catch(() => {
+					//todo se der erro deslogar usuário
+					signOut();
+				});
+		}
+	}, []);
 
 	const signIn = async ({ email, password }: SignInProps) => {
 		try {
