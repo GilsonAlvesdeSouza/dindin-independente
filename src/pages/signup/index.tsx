@@ -7,10 +7,10 @@ import styles from '@/styles/home.module.scss';
 import logoImg from '../../../public/dolar.png';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-// import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Signup() {
-	// const { signUp } = useContext(AuthContext);
+	const { signUp } = useContext(AuthContext);
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -38,11 +38,12 @@ export default function Signup() {
 			<div className={styles.containerCenter}>
 				<div className={styles.logo}>
 					<Image src={logoImg} alt="Logo Dindin" width={40} height={40} />
-					<span>Dindin Cubos Ifood</span>
+					<span>Dindin</span>
+					<h1>Cubos/Ifood</h1>
 				</div>
 				<div className={styles.login}>
 					<h1>Criando sua conta</h1>
-					<form onSubmit={handleSignUp} autoComplete="off">
+					<form onSubmit={handleSignUp} autoComplete="nope">
 						<Input
 							type="text"
 							placeholder="Informe seu nome"
