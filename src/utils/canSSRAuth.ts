@@ -8,9 +8,11 @@ import { AuthTokenError } from '@/services/errors/AuthTokenError';
 
 //Função para paginas que só podem ser acessadas por usuários logadas
 
-export function canSSRAuth<P extends { [key: string]: any }>(
-	fn: GetServerSideProps<P>
-) {
+export function canSSRAuth<P extends { [key: string]: any }>({
+	fn
+}: {
+	fn: GetServerSideProps<P>;
+}) {
 	return async (
 		ctx: GetServerSidePropsContext
 	): Promise<GetServerSidePropsResult<P>> => {
