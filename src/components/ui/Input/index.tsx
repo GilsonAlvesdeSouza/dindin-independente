@@ -9,5 +9,5 @@ export function Input({ ...rest }: inputProps) {
 interface textProps extends TextareaHTMLAttributes<HTMLElement> {}
 
 export function Text({ ...rest }: textProps) {
-	return <textarea className={styles.input} {...rest}></textarea>;
+	       return <textarea className={styles.input} {...rest}></textarea>;
 }

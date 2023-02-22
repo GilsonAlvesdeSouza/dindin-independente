@@ -2,7 +2,6 @@ import { FormEvent, useContext, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
-import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import logoImg from '../../public/dolar.png';
 import styles from '@/styles/home.module.scss';
@@ -39,13 +38,14 @@ export default function Home() {
 				<title>DinDin</title>
 			</Head>
 			<div className={styles.containerCenter}>
-				<Link href="/signup" legacyBehavior>
-					<div className={styles.logo}>
-						<Image src={logoImg} alt="Logo Dindin" width={40} height={40} />
-						<span>Dindin</span>
-						<h1>Cubos/Ifood</h1>
-					</div>
-				</Link>
+				<div className={styles.logo}>
+					<Image src={logoImg} alt="Logo Dindin" width={40} height={40} />
+					<span>Dindin</span>
+					<h1 className={styles.colorCubos}>Cubos</h1>
+					<span>/</span>
+					<span className={styles.colorIfood}>Ifood</span>
+				</div>
+
 				<div className={styles.login}>
 					<h1>Login</h1>
 					<form onSubmit={handleLogin} autoComplete="nope">
@@ -70,7 +70,7 @@ export default function Home() {
 						</Button>
 					</form>
 					<Link href="/signup" legacyBehavior>
-						<a className={styles.text}>Não possui uma consta? Cadastre-se</a>
+						<a className={styles.text}>Não possui uma conta? Cadastre-se</a>
 					</Link>
 				</div>
 			</div>

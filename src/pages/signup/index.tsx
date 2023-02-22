@@ -39,7 +39,9 @@ export default function Signup() {
 				<div className={styles.logo}>
 					<Image src={logoImg} alt="Logo Dindin" width={40} height={40} />
 					<span>Dindin</span>
-					<h1>Cubos/Ifood</h1>
+					<h1 className={styles.colorCubos}>Cubos</h1>
+					<span>/</span>
+					<span className={styles.colorIfood}>Ifood</span>
 				</div>
 				<div className={styles.login}>
 					<h1>Criando sua conta</h1>
