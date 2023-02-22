@@ -23,8 +23,8 @@ export function Header() {
 					<Link href="/categorias" legacyBehavior>
 						<a>Categorias</a>
 					</Link>
-					<Link href="/usuarios" legacyBehavior>
-						<a>Usuários</a>
+					<Link href="/usuario" legacyBehavior>
+						<a>Usuário</a>
 					</Link>
 					<button onClick={signOut}>
 						<FiLogOut size={24} />

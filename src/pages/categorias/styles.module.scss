@@ -1,0 +1,15 @@
+.container{
+	max-width: 720px;
+	margin: 4rem auto;
+	padding: 0 2rem;
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+
+	h1{
+		color: var(--white);		
+	}
+}
+
+
