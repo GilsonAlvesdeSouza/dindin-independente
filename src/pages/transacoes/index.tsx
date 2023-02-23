@@ -16,11 +16,11 @@ interface HomeProps {
 }
 
 export default function Category({ categorias }: HomeProps) {
-	const [tipo, setTipo] = useState('');
+	const [tipo, setTipo] = useState('0');
 	const [descricao, setDescricao] = useState('');
 	const [valor, setValor] = useState('');
 	const [data, setData] = useState('');
-	const [categoria, setCategoria] = useState('');
+	const [categoria, setCategoria] = useState('0');
 	const [listaCategorias, setListaCategorias] = useState(categorias || []);
 
 	async function handleRegister(event: FormEvent) {
@@ -94,7 +94,7 @@ export default function Category({ categorias }: HomeProps) {
 					onSubmit={handleRegister}
 				>
 					<select
-						className={styles.input}
+						className={styles.select}
 						name="tipo"
 						id=""
 						value={tipo}
@@ -126,7 +126,7 @@ export default function Category({ categorias }: HomeProps) {
 						onChange={(e) => setData(e.target.value)}
 					/>
 					<select
-						className={styles.input}
+						className={styles.select}
 						name="Categoria"
 						id=""
 						value={categoria}

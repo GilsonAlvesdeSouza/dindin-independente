@@ -13,9 +13,12 @@ export function Header() {
 	return (
 		<header className={styles.headerContainer}>
 			<div className={styles.headerContent}>
-				<Link href="/dashboard">
-					<Image src={dolar} alt="Logo Dindin" width={40} height={40} />
-				</Link>
+				<div className={styles.menuIcon}>
+					<Link href="/dashboard" legacyBehavior>
+						<Image src={dolar} alt="Logo Dindin" width={40} height={40} />
+					</Link>
+					<span>Home</span>
+				</div>
 				<nav className={styles.menuNav}>
 					<Link href="/transacoes" legacyBehavior>
 						<a>Transações</a>

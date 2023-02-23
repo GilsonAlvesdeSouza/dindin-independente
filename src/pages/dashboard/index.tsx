@@ -1,10 +1,29 @@
+import { useState } from 'react';
 import { canSSRAuth } from '@/utils/canSSRAuth';
 import { FiRefreshCcw } from 'react-icons/fi';
 import Head from 'next/head';
 import { Header } from '@/components/Header';
 import styles from './styles.module.scss';
+import setupAPIClient from '@/services/api';
 
-export default function Dashboard() {
+type transacoesProps = {
+	id: number;
+	tipo: string;
+	descricao: string;
+	valor: number;
+	data: string;
+	usuario_id: number;
+	categoria_id: number;
+	categoria_nome: string;
+};
+
+interface HomeProps {
+	transacoes: transacoesProps[];
+}
+
+export default function Dashboard({ transacoes }: HomeProps) {
+	const [listaTransacoes, setListaTransacoes] = useState(transacoes || []);
+
 	return (
 		<>
 			<Head>
@@ -20,16 +39,21 @@ export default function Dashboard() {
 						</button>
 					</div>
 					<article className={styles.listTransacoes}>
-						<section className={styles.transacao}>
-							<button>
-								<div className={styles.tag}></div>
-								<div className={styles.descricao}>
-									<span>Descrição: compra doida</span>
-									<span>Data: 22/02/2008</span>
-									<span>Valor: R$ 100,00</span>
-								</div>
-							</button>
-						</section>
+						{listaTransacoes.map((item) => (
+							<section
+								key={`transacao-${item.id}`}
+								className={styles.transacao}
+							>
+								<button>
+									<div className={styles.tag}></div>
+									<div className={styles.descricao}>
+										<span>Descrição: {item.descricao}</span>
+										<span>Data: {item.data}</span>
+										<span>Valor: {item.valor}</span>
+									</div>
+								</button>
+							</section>
+						))}
 					</article>
 				</main>
 			</div>
@@ -38,9 +62,15 @@ export default function Dashboard() {
 }
 
 export const getServerSideProps = canSSRAuth({
-	fn: async (ctx) => {
+	fn: async (ctx: any) => {
+		const apiClient = setupAPIClient(ctx);
+
+		const response = await apiClient.get('/transacao');
+
 		return {
-			props: {}
+			props: {
+				transacoes: response.data
+			}
 		};
 	}
 });

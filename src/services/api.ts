@@ -7,7 +7,7 @@ export default function setupAPIClient(ctx = undefined) {
 	let cookies = parseCookies(ctx);
 
 	const api = axios.create({
-		baseURL: 'http://localhost:3001',
+		baseURL: 'https://desafio-backend-03-dindin.pedagogico.cubos.academy',
 		headers: {
 			Authorization: `Bearer ${cookies['@dindin.token']}`,
 			'content-type': 'application/json'

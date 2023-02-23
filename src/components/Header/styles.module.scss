@@ -12,6 +12,25 @@
 	align-items: center;
 }
 
+.menuIcon{
+	display: flex;
+	align-items: center;
+	transition: all ease 0.7s;
+	
+	span{
+		margin-left: 0.1rem;
+		color: var(--white);
+	}
+	
+	&:hover{
+		span{
+			color: var(--red-900);
+		}
+		cursor: pointer;
+		transform: scale(1.1);
+	}
+}
+
 .menuNav{
 	display: flex;
 	align-items: center;
@@ -24,7 +43,7 @@
 		transition: all ease 0.7s;
 
 		& + a{
-			margin-left: 2rem;
+			margin-left: 0.5rem;
 		}
 
 		&:hover{
