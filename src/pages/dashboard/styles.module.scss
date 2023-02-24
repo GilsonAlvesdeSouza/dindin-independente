@@ -29,6 +29,7 @@
 }
 
 .transacao{
+	height: 120px;
 	display: flex;
 	flex-direction: row;
 	background-color: var(--dark-900);
@@ -36,26 +37,24 @@
 	align-items: center;
 	border-radius: 0.4rem;
 	transition: all ease 0.4s;
-
+	color: var(--white);
+	font-size: 1.2rem;
+	align-items: center;
+	
 	&:hover{
+		cursor: pointer;
 		filter: brightness(0.8)
-	}
-
-	button{
-		display: flex;
-		background: transparent;
-		border: 0;
-		font-size: 1.2rem;
-		color: var(--white);
-		height: 70px;
-		align-items: center;
 	}	
+
+	span{
+		margin: 0.1rem;
+	}
 }
 
 .tag{
 	width: 9px;
 	background-color: var(--green-900);
-	height: 70px;
+	height: 120px;
 	border-radius: 0.4rem 0 0 0.4rem;
 	margin-right: 1rem;
 }
