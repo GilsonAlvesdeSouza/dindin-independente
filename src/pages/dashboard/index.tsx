@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import { canSSRAuth } from '@/utils/canSSRAuth';
-import { FiRefreshCcw } from 'react-icons/fi';
+import { FiRefreshCcw, FiTrash2 } from 'react-icons/fi';
 import Head from 'next/head';
 import { Header } from '@/components/Header';
 import styles from './styles.module.scss';
 import setupAPIClient from '@/services/api';
 import { ModalTransacoes } from '@/components/ModalTransacoes';
-import { formatDate, formatDateReverse } from '@/utils/DateFormat';
-import { toast } from 'react-toastify';
+import { formatDateReverse } from '@/utils/DateFormat';
 
 export type transacoesProps = {
 	id: number;
@@ -41,6 +40,12 @@ export default function Dashboard({ transacoes }: HomeProps) {
 		setListaTransacoes(response.data);
 	}
 
+	async function handleBtnExcluir(id: number) {
+		const apiClient = setupAPIClient();
+		await apiClient.delete(`/transacao/${id}`);
+		handleResetTransacoes();
+	}
+
 	async function handleOpenModal(id: number) {
 		const apiClient = setupAPIClient();
 
@@ -68,18 +73,29 @@ export default function Dashboard({ transacoes }: HomeProps) {
 					<article className={styles.listTransacoes}>
 						{listaTransacoes.map((item) => (
 							<section
-								onClick={() => handleOpenModal(Number(item.id))}
 								key={`transacao-${item.id}`}
-								className={styles.transacao}
+								className={styles.transacaoContent}
 							>
-								<div className={styles.tag}></div>
-								<div className={styles.descricao}>
-									<span>Tipo: {item.tipo}</span>
-									<span>Descrição: {item.descricao}</span>
-									<span>Valor: {item.valor}</span>
-									<span>Categoria: {item.categoria_nome}</span>
-									<span>Data: {formatDateReverse(new Date(item.data))}</span>
+								<div className={styles.transacao}>
+									<div className={styles.tag}></div>
+									<div
+										className={styles.descricao}
+										onClick={() => handleOpenModal(Number(item.id))}
+									>
+										<span>Tipo: {item.tipo}</span>
+										<span>Descrição: {item.descricao}</span>
+										<span>Valor: {item.valor}</span>
+										<span>Categoria: {item.categoria_nome}</span>
+										<span>Data: {formatDateReverse(new Date(item.data))}</span>
+									</div>
 								</div>
+								<button
+									className={styles.btnExcluir}
+									onClick={() => handleBtnExcluir(item.id)}
+								>
+									<FiTrash2 size={30} color="#f34748" />
+									<span>Excluir</span>
+								</button>
 							</section>
 						))}
 					</article>
