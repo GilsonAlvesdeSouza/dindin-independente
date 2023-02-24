@@ -23,6 +23,9 @@ export function Header() {
 					<Link href="/transacoes" legacyBehavior>
 						<a>Transações</a>
 					</Link>
+					<Link href="/extrato" legacyBehavior>
+						<a>Extrato</a>
+					</Link>
 					<Link href="/categorias" legacyBehavior>
 						<a>Categorias</a>
 					</Link>

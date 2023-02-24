@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import Modal from 'react-modal';
 import { canSSRAuth } from '@/utils/canSSRAuth';
 import { FiRefreshCcw } from 'react-icons/fi';
 import Head from 'next/head';
 import { Header } from '@/components/Header';
 import styles from './styles.module.scss';
 import setupAPIClient from '@/services/api';
+import { ModalUsuario } from '@/components/ModalUsuario';
 
-type usuarioProps = {
+export type usuarioProps = {
 	id: number;
 	nome: string;
 	email: string;
@@ -18,7 +20,17 @@ interface HomeProps {
 
 export default function Dashboard({ usuarioResponse }: HomeProps) {
 	const [usuario, setUsuario] = useState(usuarioResponse);
+	const [modalVisible, setModalVisible] = useState(false);
 
+	function handleCloseModal() {
+		setModalVisible(false);
+	}
+
+	function handleOpenModal() {
+		setModalVisible(true);
+	}
+
+	Modal.setAppElement('#__next');
 	return (
 		<>
 			<Head>
@@ -34,7 +46,10 @@ export default function Dashboard({ usuarioResponse }: HomeProps) {
 						</button>
 					</div>
 					<article className={styles.containerUsuario}>
-						<section className={styles.usuario}>
+						<section
+							className={styles.usuario}
+							onClick={() => handleOpenModal()}
+						>
 							<button>
 								<div className={styles.tag}></div>
 								<div className={styles.descricao}>
@@ -46,6 +61,14 @@ export default function Dashboard({ usuarioResponse }: HomeProps) {
 						</section>
 					</article>
 				</main>
+				{modalVisible && (
+					<ModalUsuario
+						isOpen={modalVisible}
+						onRequestClose={handleCloseModal}
+						usuario={usuario}
+						
+					/>
+				)}
 			</div>
 		</>
 	);

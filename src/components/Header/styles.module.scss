@@ -65,5 +65,16 @@
 			filter: brightness(1.5);
 		}
 	}
-
 }
+
+@media(max-width: 470px){
+  .menuNav{
+	  font-size: 0.8rem;
+	  padding: 0;
+	  a{
+		  margin: 0;
+		  padding: 0;
+	  }	
+  }
+}
+
