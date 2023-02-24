@@ -51,7 +51,7 @@ export default function Dashboard({ transacoes }: HomeProps) {
 
 		const response = await apiClient.get(`/transacao/${id}`);
 		setModalItem(response.data);
-		console.log(response.data);
+
 		setModalVisible(true);
 	}
 
