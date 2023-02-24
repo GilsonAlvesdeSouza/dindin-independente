@@ -16,7 +16,7 @@ interface HomeProps {
 }
 
 export default function Dashboard({ categorias }: HomeProps) {
-	const [listaCategorias, setListaCategorias] = useState(categorias || []);
+	const [listaCategorias] = useState(categorias || []);
 
 	return (
 		<>
@@ -32,11 +32,11 @@ export default function Dashboard({ categorias }: HomeProps) {
 							<FiRefreshCcw color="#3fffa3" size={25} />
 						</button>
 					</div>
-					<article className={styles.listTransacoes}>
+					<article className={styles.listCategorias}>
 						{listaCategorias.map((item) => (
 							<section
 								key={`transacao-${item.id}`}
-								className={styles.transacao}
+								className={styles.categoria}
 							>
 								<button>
 									<div className={styles.tag}></div>

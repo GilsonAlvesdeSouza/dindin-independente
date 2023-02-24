@@ -33,8 +33,8 @@ export default function Dashboard({ usuarioResponse }: HomeProps) {
 							<FiRefreshCcw color="#3fffa3" size={25} />
 						</button>
 					</div>
-					<article className={styles.listTransacoes}>
-						<section className={styles.transacao}>
+					<article className={styles.containerUsuario}>
+						<section className={styles.usuario}>
 							<button>
 								<div className={styles.tag}></div>
 								<div className={styles.descricao}>

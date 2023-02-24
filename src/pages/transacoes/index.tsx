@@ -85,63 +85,65 @@ export default function Category({ categorias }: HomeProps) {
 			<Head>
 				<title>Transações</title>
 			</Head>
-			<Header />
-			<main className={styles.container}>
-				<h1>Cadastrar Transações</h1>
-				<form
-					className={styles.form}
-					autoComplete="false"
-					onSubmit={handleRegister}
-				>
-					<select
-						className={styles.select}
-						name="tipo"
-						id=""
-						value={tipo}
-						onChange={(e) => setTipo(e.target.value)}
+			<div>
+				<Header />
+				<main className={styles.container}>
+					<h1>Cadastrar Transações</h1>
+					<form
+						className={styles.form}
+						autoComplete="false"
+						onSubmit={handleRegister}
 					>
-						<option value="0">Escolha uma Tipo</option>
-						<option value="entrada">entrada</option>
-						<option value="saida">saida</option>
-					</select>
-					<input
-						className={styles.input}
-						type="text"
-						placeholder="Informe a descrição"
-						value={descricao}
-						onChange={(e) => setDescricao(e.target.value)}
-					/>
-					<input
-						className={styles.input}
-						type=""
-						placeholder="Informe a valor"
-						value={valor}
-						onChange={(e) => setValor(e.target.value)}
-					/>
-					<input
-						className={styles.input}
-						type="date"
-						placeholder="Informe a data"
-						value={data}
-						onChange={(e) => setData(e.target.value)}
-					/>
-					<select
-						className={styles.select}
-						name="Categoria"
-						id=""
-						value={categoria}
-						onChange={(e) => {
-							setCategoria(e.target.value);
-						}}
-					>
-						<option value="0">Escolha uma Categoria</option>
-						{handleCategorias()}
-					</select>
-					<button className={styles.buttonAdd} type="submit">
-						Cadastrar
-					</button>
-				</form>
-			</main>
+						<select
+							className={styles.select}
+							name="tipo"
+							id=""
+							value={tipo}
+							onChange={(e) => setTipo(e.target.value)}
+						>
+							<option value="0">Escolha uma Tipo</option>
+							<option value="entrada">entrada</option>
+							<option value="saida">saida</option>
+						</select>
+						<input
+							className={styles.input}
+							type="text"
+							placeholder="Informe a descrição"
+							value={descricao}
+							onChange={(e) => setDescricao(e.target.value)}
+						/>
+						<input
+							className={styles.input}
+							type=""
+							placeholder="Informe a valor"
+							value={valor}
+							onChange={(e) => setValor(e.target.value)}
+						/>
+						<input
+							className={styles.input}
+							type="date"
+							placeholder="Informe a data"
+							value={data}
+							onChange={(e) => setData(e.target.value)}
+						/>
+						<select
+							className={styles.select}
+							name="Categoria"
+							id=""
+							value={categoria}
+							onChange={(e) => {
+								setCategoria(e.target.value);
+							}}
+						>
+							<option value="0">Escolha uma Categoria</option>
+							{handleCategorias()}
+						</select>
+						<button className={styles.buttonAdd} type="submit">
+							Cadastrar
+						</button>
+					</form>
+				</main>
+			</div>
 		</>
 	);
 }

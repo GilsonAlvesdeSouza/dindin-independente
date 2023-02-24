@@ -13,12 +13,12 @@ export function Header() {
 	return (
 		<header className={styles.headerContainer}>
 			<div className={styles.headerContent}>
-				<div className={styles.menuIcon}>
-					<Link href="/dashboard" legacyBehavior>
+				<Link href="/dashboard" legacyBehavior>
+					<div className={styles.menuIcon}>
 						<Image src={dolar} alt="Logo Dindin" width={40} height={40} />
-					</Link>
-					<span>Home</span>
-				</div>
+						<span>Home</span>
+					</div>
+				</Link>
 				<nav className={styles.menuNav}>
 					<Link href="/transacoes" legacyBehavior>
 						<a>Transações</a>
