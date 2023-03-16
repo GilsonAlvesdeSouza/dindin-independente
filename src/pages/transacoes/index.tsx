@@ -86,7 +86,7 @@ export default function Category({ categorias }: HomeProps) {
 				<title>Transações</title>
 			</Head>
 			<div>
-				<Header />
+				<Header textColor={'transacoes'} />
 				<main className={styles.container}>
 					<h1>Cadastrar Transações</h1>
 					<form

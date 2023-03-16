@@ -24,7 +24,7 @@ export default function Dashboard({ categorias }: HomeProps) {
 				<title>Painel Dindin</title>
 			</Head>
 			<div>
-				<Header />
+				<Header textColor={'categorias'} />
 				<main className={styles.container}>
 					<div className={styles.containerHeader}>
 						<h1>Lista de Categorias</h1>

@@ -37,7 +37,7 @@ export default function Dashboard({ usuarioResponse }: HomeProps) {
 				<title>Painel Dindin</title>
 			</Head>
 			<div>
-				<Header />
+				<Header textColor={'usuario'}/>
 				<main className={styles.container}>
 					<div className={styles.containerHeader}>
 						<h1>Detalhes do Usuário</h1>
@@ -66,7 +66,6 @@ export default function Dashboard({ usuarioResponse }: HomeProps) {
 						isOpen={modalVisible}
 						onRequestClose={handleCloseModal}
 						usuario={usuario}
-						
 					/>
 				)}
 			</div>

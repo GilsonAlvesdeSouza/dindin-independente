@@ -7,30 +7,71 @@ import { FiLogOut } from 'react-icons/fi';
 import styles from './styles.module.scss';
 import dolar from '../../../public/dolar.png';
 
-export function Header() {
-	const { signOut } = useContext(AuthContext);
+type colorTextNav = {
+	textColor?: string
+}
 
+export function Header({ textColor }:colorTextNav) {
+	const { signOut } = useContext(AuthContext);
+	
 	return (
 		<header className={styles.headerContainer}>
 			<div className={styles.headerContent}>
 				<Link href="/dashboard" legacyBehavior>
 					<div className={styles.menuIcon}>
 						<Image src={dolar} alt="Logo Dindin" width={40} height={40} />
-						<span>Home</span>
+						<a
+							style={
+								textColor == 'home'
+									? { color: '#3fffa3' }
+									: { color: 'white' }
+							}
+						>
+							Home
+						</a>
 					</div>
 				</Link>
+
 				<nav className={styles.menuNav}>
 					<Link href="/transacoes" legacyBehavior>
-						<a>Transações</a>
+						<a
+							style={
+								textColor == 'transacoes'
+									? { color: '#3fffa3' }
+									: { color: 'white' }
+							}
+						>
+							Transações
+						</a>
 					</Link>
 					<Link href="/extrato" legacyBehavior>
-						<a>Extrato</a>
+						<a
+							style={
+								textColor == 'extrato' ? { color: '#3fffa3' } : { color: 'white' }
+							}
+						>
+							Extrato
+						</a>
 					</Link>
 					<Link href="/categorias" legacyBehavior>
-						<a>Categorias</a>
+						<a
+							style={
+								textColor == 'categorias'
+									? { color: '#3fffa3' }
+									: { color: 'white' }
+							}
+						>
+							Categorias
+						</a>
 					</Link>
 					<Link href="/usuario" legacyBehavior>
-						<a>Usuário</a>
+						<a
+							style={
+								textColor == 'usuario' ? { color: '#3fffa3' } : { color: 'white' }
+							}
+						>
+							Usuário
+						</a>
 					</Link>
 					<button onClick={signOut}>
 						<FiLogOut size={24} />

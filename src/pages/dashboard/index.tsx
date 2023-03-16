@@ -62,7 +62,7 @@ export default function Dashboard({ transacoes }: HomeProps) {
 				<title>Painel Dindin</title>
 			</Head>
 			<div>
-				<Header />
+				<Header textColor={'home'} />
 				<main className={styles.container}>
 					<div className={styles.containerHeader}>
 						<h1>Ultimas Transações</h1>

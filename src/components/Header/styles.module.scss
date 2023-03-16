@@ -15,16 +15,17 @@
 .menuIcon{
 	display: flex;
 	align-items: center;
+	padding: 15px;
 	transition: all ease 0.7s;
 	
-	span{
-		margin-left: 0.1rem;
+	a{
+		margin-left: 0.7rem;
 		color: var(--white);
 	}
 	
 	&:hover{
-		span{
-			color: var(--red-900);
+		a{
+			color: var(--red-900)!important;
 		}
 		cursor: pointer;
 		transform: scale(1.1);
@@ -47,7 +48,7 @@
 		}
 
 		&:hover{
-			color: var(--red-900);
+			color: var(--red-900)!important;
 			transform: scale(1.1);
 		}
 	}

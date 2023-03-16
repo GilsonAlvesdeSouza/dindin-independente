@@ -1,8 +1,15 @@
+@font-face {
+	font-family: 'ProximaSoft';
+	src: url('../../public/assets/fonts/ProximaSoft-SemiBold.ttf');
+}
 * {
 	margin: 0;
 	padding: 0;
 	outline: 0;
 	box-sizing: border-box;
+	font-family: 'ProximaSoft';
+	font-weight: 700;
+	font-size: large;
 }
 
 :root {

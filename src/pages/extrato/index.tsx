@@ -25,7 +25,7 @@ export default function Dashboard({ extrato }: HomeProps) {
 				<title>Painel Dindin</title>
 			</Head>
 			<div>
-				<Header />
+				<Header textColor={'extrato'} />
 				<main className={styles.container}>
 					<div className={styles.containerHeader}>
 						<h1>Extrato</h1>
